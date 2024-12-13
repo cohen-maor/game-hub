@@ -20,7 +20,7 @@ const GameGrid = () => {
 				))}
 			</List.Root> */}
 
-			<SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gap={10} padding="10px">
+			<SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gap={3} padding="10px">
 				{isLoading &&
 					skeletons.map((skeleton) => (
 						<GameCardContainer>
