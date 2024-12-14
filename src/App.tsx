@@ -27,7 +27,7 @@ const App = () => {
 	// addUser();
 
 	useEffect(() => {
-		console.log("KEY: " + process.env.REACT_APP_SUPABASE_KEY);
+		console.log("KEY: " + process.env.REACT_APP_WHATEVER);
 	}, [])
 
 	return (
