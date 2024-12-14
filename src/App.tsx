@@ -3,28 +3,32 @@ import NavBar from "./componenets/NavBar";
 import GameGrid from "./componenets/GameGrid";
 import GenreList from "./componenets/GenreList";
 import { Genre } from "./hooks/useGenres";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 
 const App = () => {
 	const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
 
-	const supabaseUrl = "https://yplzzgbwrphcwkrpdpjh.supabase.co";
-	const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
-	console.log(process.env.REACT_APP_SUPABASE_KEY);
-	const supabase = createClient(supabaseUrl, supabaseKey as string);
+	// const supabaseUrl = "https://yplzzgbwrphcwkrpdpjh.supabase.co";
+	// const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
+	// console.log(process.env.REACT_APP_SUPABASE_KEY);
+	// const supabase = createClient(supabaseUrl, supabaseKey as string);
 
-	const addUser = async () => {
-		let { data, error } = await supabase.auth.signUp({
-			email: "someone@email.com",
-			password: "NBeyPnkOUllPplqeakkq",
-		});
+	// const addUser = async () => {
+	// 	let { data, error } = await supabase.auth.signUp({
+	// 		email: "someone@email.com",
+	// 		password: "NBeyPnkOUllPplqeakkq",
+	// 	});
 
-		console.log(data, error);
-	}
+	// 	console.log(data, error);
+	// }
 
-	addUser();
+	// addUser();
+
+	useEffect(() => {
+		console.log("KEY: " + process.env.REACT_APP_SUPABASE_KEY);
+	}, [])
 
 	return (
 		<>
