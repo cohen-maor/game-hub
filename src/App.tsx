@@ -11,8 +11,8 @@ const App = () => {
 	const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
 
 	const supabaseUrl = "https://yplzzgbwrphcwkrpdpjh.supabase.co";
-	const supabaseKey = process.env.VUE_APP_SUPABASE_ANON_KEY;
-	console.log(process.env.VUE_APP_SUPABASE_ANON_KEY);
+	const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
+	console.log(process.env.REACT_APP_SUPABASE_KEY);
 	const supabase = createClient(supabaseUrl, supabaseKey as string);
 
 	const addUser = async () => {
