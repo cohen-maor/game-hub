@@ -3,11 +3,28 @@ import NavBar from "./componenets/NavBar";
 import GameGrid from "./componenets/GameGrid";
 import GenreList from "./componenets/GenreList";
 import { Genre } from "./hooks/useGenres";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { createClient } from "@supabase/supabase-js";
 
 const App = () => {
-	const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
+	const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
 
+	const supabaseUrl = "https://yplzzgbwrphcwkrpdpjh.supabase.co";
+	const supabaseKey = process.env.SUPABASE_KEY;
+	const supabase = createClient(supabaseUrl, supabaseKey as string);
+
+	const addUser = async () => {
+		let { data, error } = await supabase.auth.signUp({
+			email: "someone@email.com",
+			password: "NBeyPnkOUllPplqeakkq",
+		});
+
+		console.log(data, error);
+	}
+
+	addUser();
+	
 	return (
 		<>
 			{/* <HStack>
@@ -23,18 +40,25 @@ const App = () => {
 					lg: '"nav nav" "aside main"',
 				}}
 				templateColumns={{
-					base: '1fr',
-					lg: '200px 1fr'
+					base: "1fr",
+					lg: "200px 1fr",
 				}}
 			>
 				<GridItem area="nav">
 					<NavBar />
 				</GridItem>
-				<GridItem display={{ base: "none", lg: "block" }} area="aside" paddingX={5}>
-					<GenreList selectedGenre={selectedGenre} onSelectGenre={(genre) => setSelectedGenre(genre)}/>
+				<GridItem
+					display={{ base: "none", lg: "block" }}
+					area="aside"
+					paddingX={5}
+				>
+					<GenreList
+						selectedGenre={selectedGenre}
+						onSelectGenre={(genre) => setSelectedGenre(genre)}
+					/>
 				</GridItem>
 				<GridItem area="main">
-					<GameGrid selectedGenre={selectedGenre}/>
+					<GameGrid selectedGenre={selectedGenre} />
 				</GridItem>
 			</Grid>
 		</>
