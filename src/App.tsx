@@ -12,7 +12,7 @@ const App = () => {
 
 	const supabaseUrl = "https://yplzzgbwrphcwkrpdpjh.supabase.co";
 	const supabaseKey = process.env.SUPABASE_KEY;
-	console.log(process.env.SUPABASE_KEY);
+	console.log(process.env.SUPABASE_ANON_KEY);
 	const supabase = createClient(supabaseUrl, supabaseKey as string);
 
 	const addUser = async () => {
