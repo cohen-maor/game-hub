@@ -3,7 +3,7 @@ import NavBar from "./componenets/NavBar";
 import GameGrid from "./componenets/GameGrid";
 import GenreList from "./componenets/GenreList";
 import { Genre } from "./hooks/useGenres";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { createClient } from "@supabase/supabase-js";
 
@@ -24,7 +24,7 @@ const App = () => {
 	}
 
 	addUser();
-	
+
 	return (
 		<>
 			{/* <HStack>
